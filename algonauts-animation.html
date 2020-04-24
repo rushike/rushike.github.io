@@ -18,6 +18,58 @@
 </head>
   <body>
     <script>
+                a = {
+            0 : {
+                0 : "M 19 310 H 1 V 390 H 6 V 310 Z",
+                1 : "M 19 310 H 13 V 390 H 18 V 310 Z",
+                2 : "M 19 310 H 26 V 390 H 31 V 310 Z"
+            }, 
+            1 : {
+                0 : "M 59 290 H 44 V 370 H 49 V 290 Z",
+                1 : "M 59 290 H 54 V 370 H 59 V 290 Z",
+                2 : "M 59 290 H 65 V 370 H 70 V 290 Z", 
+            },
+            2 : {
+                0 : "M 98 274 H 80 V 354 H 85 V 274 Z",
+                1 : "M 98 274 H 91 V 354 H 96 V 274 Z",
+                2 : "M 98 274 H 102 V 354 H 107 V 274 Z"
+            },
+            3 : {
+                0 : "M 137 235 H 203 V 317 H 208 V 235 Z",
+                1 : "M 137 235 H 214 V 317 H 219 V 235 Z",
+                2 : "M 137 235 H 225 V 317 H 230 V 235 Z"
+            },
+            4 : {
+                0 : "M 176 220 H 160 V 300 H 165 V 220 Z",
+                1 : "M 176 220 H 171 V 300 H 176 V 220 Z",
+                2 : "M 176 220 H 181 V 300 H 186 V 220 Z"
+            },
+            5 : {
+                0 : "M 176 220 H 160 V 300 H 165 V 220 Z",
+                1 : "M 176 220 H 171 V 300 H 176 V 220 Z",
+                2 : "M 176 220 H 181 V 300 H 186 V 220 Z"
+            }, 
+            6 : {
+                0 : "M 137 237 H 123 V 317 H 128 V 237 Z",
+                0 : "M 137 237 H 132 V 317 H 137 V 237 Z",
+                0 : "M 137 237 H 142 V 317 H 147 V 237 Z"
+            },
+            7 : {
+                0 : "M 255 274 H 239 V 354 H 244 V 274 Z",
+                0 : "M 255 274 H 250 V 354 H 255 V 274 Z",
+                0 : "M 255 274 H 261 V 354 H 266 V 274 Z",
+            },
+            8 : {
+                0 : "M 294 290 H 278 V 370 H 283 V 290 Z",
+                1 : "M 294 290 H 287 V 370 H 292 V 290 Z",
+                2 : "M 294 290 H 296 V 370 H 301 V 290 Z"
+            },
+            9 : {
+                0 : "M 334 310 H 315 V 390 H 320 V 310 Z",
+                1 : "M 334 310 H 326 V 390 H 331 V 310 Z",
+                2 : "M 334 310 H 339 V 390 H 344 V 310 Z"
+            }    
+        }
         class Lander{
             constructor(props = {}){
                 this.anim_min_height = 10
@@ -29,8 +81,11 @@
                 
                 this.svg = document.getElementById(`${this.id}-svg` )
                 this.fill_the_div()
-                this.update_svg()
+                this.fire_rocket()
                 this.start_animation()
+                setTimeout(() => {
+                    this.fly_up()
+                }, 3000);
             }
 
             fill_the_div(){
@@ -38,9 +93,8 @@
                 div.innerHTML = this.svg_img()
             }
 
-            update_svg(svg){
+            fire_rocket(svg){
                 var svg = svg ? svg : document.getElementById(`${this.id}-svg` )
-                console.log("svg : " , svg)
                 for(var i = 0; i < 27; i++){
                     var stick = (i % 9) + 1 ;
                     var fire = parseInt(i / 9) + 1;
@@ -49,8 +103,42 @@
                 }
             }
 
+            fly_up(){
+                var divwrapper = document.getElementById(this.id);
+                var style = divwrapper.currentStyle || window.getComputedStyle(divwrapper);
+                var margin = style.marginTop
+                clearInterval(this.start_anim)
+                // this.boast_anim = setInterval(this.fire_rocket.bind(this), 100)
+                // setTimeout(()=>{
+                //     clearInterval(this.boast_anim)
+                // }, 800);
+                
+                let mod_margin = parseFloat(margin) / 7;
+                let subtract_margin = mod_margin
+                let new_mt = parseFloat(margin)
+
+                var svg =  document.getElementById(`${this.id}-svg` )
+                var width = parseFloat(svg.getAttribute("width"))
+                var height = parseFloat(svg.getAttribute("height"))
+                this.end_anim = setInterval(()=>{
+                    new_mt = new_mt - mod_margin;
+                    divwrapper.setAttribute('style', `margin-top : ${new_mt}px`);
+                    
+                    mod_margin *= 1.2
+                    height *= 0.95
+                    width *= 0.85
+                    svg.setAttribute("height", `${height}`)
+                    svg.setAttribute("width",`${width}` )
+                    this.fire_rocket.bind(this)
+                }, 40)
+
+                setTimeout(()=>{
+                    clearInterval(this.end_anim);
+                }, 350)
+            }
+
             start_animation(){
-                setInterval(this.update_svg.bind(this), 50)
+                this.start_anim = setInterval(this.fire_rocket.bind(this), 100)
             }
 
             svg_img(){
