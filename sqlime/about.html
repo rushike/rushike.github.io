@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sqlime / About</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Sqlime" />
+    <meta property="og:title" content="Sqlime - Online SQLite playground" />
+    <meta name="description" content="Sqlime is an online SQLite playground for debugging and sharing SQL snippets.">
+    <meta property="og:description"
+        content="Sqlime is an online SQLite playground for debugging and sharing SQL snippets." />
+    <meta property="og:url" content="https://sqlime.org/about.html" />
+    <meta property="og:image" content="https://sqlime.org/img/cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="/img/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="css/awsm.css">
+    <link rel="stylesheet" href="css/article.css">
+</head>
+
+<body>
+    <header>
+        <h3>
+            <a class="logo" href="javascript:back()">
+                <img src="/img/favicon-64x64.png">
+                sqlime
+            </a>
+        </h3>
+        <p>an online SQL playground</p>
+    </header>
+    <main>
+        <article>
+            <h1>About</h1>
+            <p>
+                <strong><a href="/">Sqlime</a></strong> is an online SQLite playground
+                for debugging and sharing SQL snippets.
+            </p>
+            <figure>
+                <img src="img/sqlime.jpg">
+                <figcaption>
+                    <p>Sqlime is like JSFiddle, but for SQL instead of JavaScript</p>
+                </figcaption>
+            </figure>
+
+            <p>Here are some notable features:</p>
+
+            <h5>🔋 Full-blown database in the browser</h5>
+            <p>
+                Sqlime is backed by the latest version of SQLite via the
+                <a href="https://github.com/nalgeon/sqlean.js">sqlean.js</a> project.
+                It provides a full-featured SQL implementation, including indexes, triggers,
+                views, transactions, CTEs, window functions and execution plans.
+            </p>
+            <p>
+                It also includes essential SQLite extensions, from math statistics and
+                regular expressions to hash functions and dynamic SQL.
+            </p>
+
+            <h5>🔌 Connect any data source</h5>
+            <p>
+                Connect any local or remote SQLite database. Both files and URLs
+                are supported. For example, try loading the
+                <a href="./#https://raw.githubusercontent.com/nalgeon/sqlime/main/employees.db">Employees database</a>
+                from the GitHub repo.
+            </p>
+
+            <h5>🔗 Save and share with others</h5>
+            <p>
+                Sqlime saves both the database and the queries to GitHub
+                so that you can revisit them later or share them with a colleague.
+                The database is stored as a plain text SQL dump, so it's easy to
+                read the code or import data into PostgreSQL, MySQL,
+                or other databases.
+            </p>
+            <p>
+                For example, here is the
+                <a href="https://gist.github.com/nalgeon/e012594111ce51f91590c4737e41a046">gist</a>
+                for the Employees database, and here is the
+                <a href="./#gist:e012594111ce51f91590c4737e41a046">sharing link</a> for it.
+            </p>
+
+            <h5>🤖 Ask AI</h5>
+            <p>
+                Connect an OpenAI account to get help with your queries
+                from the state-of-the-art ChatGPT assistant.
+            </p>
+            <figure>
+                <img src="img/sqlime-ai.jpg">
+                <figcaption>
+                    <p>AI can explain, teach, and troubleshoot your SQL</p>
+                </figcaption>
+            </figure>
+
+            <h5>✨ Interactive examples</h5>
+            <p>
+                With <a href="https://codapi.org/sqlite/">Codapi</a>,
+                you can turn static SQL code in your articles or blog posts
+                into interactive examples.
+            </p>
+            <figure>
+                <img src="img/sqlime-examples.png" width="385">
+            </figure>
+
+            <h5>📱 Mobile friendly</h5>
+            <p>
+                Most playgrounds are not meant for small screens. Sqlime
+                was specifically designed and tested on mobile devices.
+            </p>
+            <figure>
+                <img src="img/mobile.jpg" width="500">
+                <figcaption>
+                    <p>
+                        No need to zoom or aim at tiny buttons — everything
+                        looks and works just fine
+                    </p>
+                </figcaption>
+            </figure>
+
+            <h5>🔒 Secure and private</h5>
+            <p>
+                There is no server. Sqlime works completely in the browser.
+                GitHub and OpenAI credentials are also stored locally. Queries are
+                saved as private GitHub gists within your account.
+                Your data is yours only.
+            </p>
+
+            <h5>⌨️ Dead simple</h5>
+            <p>
+                Sqlime has zero third-party dependencies other than SQLite.
+                Good old HTML, CSS, and vanilla JS — that's all.
+                No frameworks, no heavy editors, no obsolete and vulnerable libraries.
+                Just some modular
+                <a href="https://github.com/nalgeon/sqlime">open-source code</a>,
+                which is easy to grasp and extend.
+            </p>
+
+            <h3>Keyboard shortcuts</h3>
+            <p>Here are some quick actions:</p>
+            <table>
+                <tr>
+                    <th>win</th>
+                    <th>mac</th>
+                    <th>action</th>
+                </tr>
+                <tr>
+                    <td><code>⌃↵</code></td>
+                    <td><code>⌘↵</code></td>
+                    <td>run query</td>
+                </tr>
+                <tr>
+                    <td><code>⌃O</code></td>
+                    <td><code>⌘O</code></td>
+                    <td>open file</td>
+                </tr>
+                <tr>
+                    <td><code>⌃U</code></td>
+                    <td><code>⌘U</code></td>
+                    <td>open url</td>
+                </tr>
+                <tr>
+                    <td><code>⌃S</code></td>
+                    <td><code>⌘S</code></td>
+                    <td>save and share</td>
+                </tr>
+                <tr>
+                    <td><code>⌃/</code></td>
+                    <td><code>⌘/</code></td>
+                    <td>show tables</td>
+                </tr>
+            </table>
+
+            <h3>Last but not least</h3>
+
+            <p>
+                <a href="https://github.com/nalgeon/sqlime">
+                    <strong>⭐️ Star the project</strong>
+                </a> on GitHub if you like it
+            </p>
+            <p>
+                <a href="https://antonz.org/subscribe/"><strong>🚀 Subscribe</strong></a>
+                to stay on top of new features
+            </p>
+            <p>
+                <a href="/"><strong>🍋 Use Sqlime</strong></a>
+                to debug and share SQL snippets
+            </p>
+
+            <p><a href="javascript:back()">← back</a></p>
+        </article>
+    </main>
+    <footer>
+        SQL for the win!
+    </footer>
+    <script>
+        function back() {
+            if (document.referrer) {
+                history.go(-1);
+            } else {
+                location.assign("./");
+            }
+        }
+    </script>
+</body>
+
+</html>

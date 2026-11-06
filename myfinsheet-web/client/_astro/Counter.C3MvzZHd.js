@@ -1,0 +1,2 @@
+import{B as e,I as t,K as n,Q as r,R as i,U as a,lt as o,nt as s,ot as c,xt as l}from"./client.D5vZcn6q.js";import"./disclose-version.xihTtKlq.js";import"./legacy.D7aAE8Ku.js";var u=e(`<button> </button>`);function d(e){let a=c(0);var d=u();d.__click=()=>o(a);var f=s(d);l(d),r(()=>t(f,`Count: ${n(a)??``}`)),i(e,d)}a([`click`]);export{d as default};
+//# sourceMappingURL=Counter.C3MvzZHd.js.map

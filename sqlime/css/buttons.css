@@ -1,0 +1,27 @@
+.button {
+    border: 1px solid var(--sqlime-blue);
+    border-radius: 0.25rem;
+    background: transparent;
+    padding: 0.5rem;
+    color: var(--sqlime-blue);
+    cursor: pointer;
+}
+.button:hover {
+    background: var(--sqlime-blue);
+    color: var(--sqlime-white);
+}
+.button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+.button:disabled:hover {
+    pointer-events: none;
+    background: transparent;
+    color: var(--sqlime-blue);
+}
+
+.button--small {
+    border-radius: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    font-size: 80%;
+}

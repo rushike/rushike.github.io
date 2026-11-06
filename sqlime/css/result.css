@@ -1,0 +1,89 @@
+.sqlime-result-section {
+    flex-grow: 1;
+    padding: 0 1rem 0.5rem 1rem;
+}
+
+.sqlime-result {
+    display: block;
+    overflow-x: auto;
+}
+
+.sqlime-result table {
+    width: 100%;
+    border: 1px solid var(--sqlime-gray);
+    border-collapse: collapse;
+    background: var(--sqlime-white);
+    font-family: var(--sqlime-monospace);
+}
+
+.sqlime-result table th {
+    border-bottom: 1px solid var(--sqlime-gray);
+    padding: 0.25rem 0.5rem;
+    text-align: left;
+}
+
+.sqlime-result table td {
+    padding: 0.25rem 0.5rem;
+}
+
+.sqlime-result pre {
+    font-family: var(--sqlime-monospace);
+    white-space: pre-wrap;
+}
+
+.sqlime-link {
+    display: inline;
+    border: none;
+    background: inherit;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--sqlime-blue);
+    font-size: 1em;
+}
+.sqlime-link:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+}
+
+.sqlime-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    border: 3px solid rgb(0, 139, 245, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--sqlime-blue);
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@media only screen and (min-width: 40rem) {
+    .sqlime-result-section {
+        padding: 0 0 0.5rem 0;
+    }
+
+    .sqlime-result {
+        overflow-x: visible;
+    }
+
+    .sqlime-result table {
+        width: auto;
+    }
+
+    .sqlime-result pre {
+        max-width: 50rem;
+    }
+}

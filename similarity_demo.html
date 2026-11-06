@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Semantic Similarity (WASM + Tract)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(22, 30, 46, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #3b82f6;
+      --accent-gradient: linear-gradient(135deg, #3b82f6, #6366f1);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --success: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 780px;
+      backdrop-filter: blur(12px);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    header {
+      margin-bottom: 28px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .status-panel {
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--card-border);
+      font-size: 13px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #eab308;
+    }
+    .status-dot.ready { background: var(--success); }
+    .status-dot.error { background: #ef4444; }
+    .model-selector {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    select, textarea {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      padding: 12px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .input-group {
+      margin-bottom: 20px;
+    }
+    button.btn-primary {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent-gradient);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+    button.btn-primary:hover:not(:disabled) {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+    button.btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .result-card {
+      margin-top: 28px;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--card-border);
+      display: none;
+    }
+    .result-score {
+      font-size: 32px;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 8px;
+    }
+    .meter-bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent-gradient);
+      border-radius: 9999px;
+      transition: width 0.4s ease;
+    }
+    .result-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Pure-Rust WASM + Tract</span>
+      <h1>Financial Semantic Similarity</h1>
+      <p class="subtitle">Runs BERT-Tiny transformer inference entirely in-browser using WebAssembly. No Python backend required.</p>
+    </header>
+
+    <div class="status-panel">
+      <div id="statusDot" class="status-dot"></div>
+      <div id="statusText">Initializing WebAssembly module & downloading micro-model...</div>
+    </div>
+
+    <div class="model-selector">
+      <label for="modelSelect">Select Model</label>
+      <select id="modelSelect">
+        <option value="/models/bert-tiny-quantized.onnx">BERT-Tiny Quantized Int8 (distilled for similarity, ~4.3 MB)</option>
+        <option value="/models/stsb-bert-tiny.onnx">BERT-Tiny STS-B fp32 (~17 MB)</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="text1">Financial Statement / Query 1</label>
+      <textarea id="text1">What is the company's liquidity and cash flow status?</textarea>
+    </div>
+
+    <div class="input-group">
+      <label for="text2">Financial Statement / Query 2</label>
+      <textarea id="text2">Evaluating short-term assets and cash equivalents availability.</textarea>
+    </div>
+
+    <button id="computeBtn" class="btn-primary" disabled>Compute Semantic Similarity</button>
+
+    <div id="resultCard" class="result-card">
+      <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 4px;">Cosine Similarity Score</div>
+      <div id="scoreDisplay" class="result-score">0.00%</div>
+      <div class="meter-bar">
+        <div id="meterFill" class="meter-fill"></div>
+      </div>
+      <div class="result-meta">
+        <span id="timingDisplay">Inference Time: -- ms</span>
+        <span id="dimDisplay">Embedding Dim: 128</span>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import init, { FinancialSimilarityEngine } from './pkg/financial_similarity_wasm.js';
+
+    let engine = null;
+    let tokenizerJson = null;
+
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    const computeBtn = document.getElementById('computeBtn');
+    const modelSelect = document.getElementById('modelSelect');
+    const text1 = document.getElementById('text1');
+    const text2 = document.getElementById('text2');
+    const resultCard = document.getElementById('resultCard');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const meterFill = document.getElementById('meterFill');
+    const timingDisplay = document.getElementById('timingDisplay');
+
+    async function loadEngine(modelUrl) {
+      try {
+        computeBtn.disabled = true;
+        statusDot.className = 'status-dot';
+        statusText.textContent = `Loading ${modelUrl.split('/').pop()} & tokenizer...`;
+
+        // Fetch tokenizer config if not loaded yet
+        if (!tokenizerJson) {
+          const tokRes = await fetch('/models/tokenizer.json');
+          if (!tokRes.ok) throw new Error(`Failed to fetch tokenizer: ${tokRes.statusText}`);
+          tokenizerJson = await tokRes.text();
+        }
+
+        const modelRes = await fetch(modelUrl);
+        if (!modelRes.ok) throw new Error(`Failed to fetch model: ${modelRes.statusText}`);
+        const modelBytes = new Uint8Array(await modelRes.arrayBuffer());
+
+        statusText.textContent = 'Compiling ONNX graph in Rust/WASM...';
+        engine = new FinancialSimilarityEngine(modelBytes, tokenizerJson);
+
+        statusDot.className = 'status-dot ready';
+        statusText.textContent = 'Engine ready! Enter texts and compute similarity.';
+        computeBtn.disabled = false;
+      } catch (err) {
+        console.error(err);
+        statusDot.className = 'status-dot error';
+        statusText.textContent = `Error: ${err.message || err}`;
+      }
+    }
+
+    async function main() {
+      try {
+        // Initialize WASM module
+        await init();
+        await loadEngine(modelSelect.value);
+      } catch (err) {
+        console.error(err);
+        statusDot.className = 'status-dot error';
+        statusText.textContent = `WASM Init Failed: ${err.message || err}`;
+      }
+    }
+
+    modelSelect.addEventListener('change', () => loadEngine(modelSelect.value));
+
+    computeBtn.addEventListener('click', () => {
+      if (!engine) return;
+      const t0 = performance.now();
+      try {
+        const rawScore = engine.compute_similarity(text1.value.trim(), text2.value.trim());
+        const t1 = performance.now();
+
+        // Cosine similarity clamp between -1 and 1
+        const clampedScore = Math.max(-1, Math.min(1, rawScore));
+        const percentage = (clampedScore * 100).toFixed(2);
+        const positivePercentage = Math.max(0, clampedScore * 100).toFixed(1);
+
+        resultCard.style.display = 'block';
+        scoreDisplay.textContent = `${clampedScore.toFixed(4)} (${percentage}%)`;
+        meterFill.style.width = `${positivePercentage}%`;
+        timingDisplay.textContent = `Inference Time: ${(t1 - t0).toFixed(1)} ms`;
+      } catch (err) {
+        alert('Inference error: ' + err);
+      }
+    });
+
+    main();
+  </script>
+</body>
+</html>

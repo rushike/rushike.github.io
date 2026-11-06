@@ -1,0 +1,57 @@
+.sqlime-commandbar {
+    display: flex;
+}
+
+.sqlime-commandbar > button {
+    display: block;
+    margin: 0 0.125rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    border: 1px solid var(--sqlime-blue);
+    border-radius: 0.125rem;
+    background: transparent;
+    color: var(--sqlime-blue);
+    line-height: 1rem;
+    font-size: 1rem;
+}
+
+.sqlime-commandbar > button:first-child {
+    flex-grow: 4;
+    background: var(--sqlime-blue);
+    color: var(--sqlime-white);
+}
+
+.sqlime-commandbar > button:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+}
+
+.sqlime-commandbar img,
+.sqlime-commandbar svg {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1rem;
+}
+
+@media only screen and (min-width: 40rem) {
+    .sqlime-commandbar {
+        position: absolute;
+        bottom: 0.5rem;
+    }
+
+    .sqlime-commandbar > button {
+        margin: 0;
+        border: none;
+    }
+    .sqlime-commandbar > button:hover {
+        background: var(--sqlime-blue) !important;
+        color: var(--sqlime-white) !important;
+    }
+
+    .sqlime-commandbar > button:first-child {
+        flex-grow: 0;
+        background: transparent;
+        color: var(--sqlime-blue);
+    }
+}

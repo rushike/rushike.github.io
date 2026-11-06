@@ -1,0 +1,2 @@
+function e(e){return new Worker(`/myfinsheet-web/_astro/editor.worker-XG_JuPB1.js`,{type:`module`,name:e?.name})}function t(e){return new Worker(`/myfinsheet-web/_astro/json.worker-Cbd8WVb5.js`,{type:`module`,name:e?.name})}export{e as n,t};
+//# sourceMappingURL=json.worker.22NJu98v.js.map

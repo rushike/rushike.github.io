@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sqlime - SQLite Playground</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Sqlime" />
+    <meta property="og:title" content="Sqlime - Online SQLite playground" />
+    <meta name="description" content="Sqlime is an online SQLite playground for debugging and sharing SQL snippets.">
+    <meta property="og:description"
+        content="Sqlime is an online SQLite playground for debugging and sharing SQL snippets." />
+    <meta property="og:url" content="https://sqlime.org/" />
+    <meta property="og:image" content="https://sqlime.org/img/cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="/img/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <div class="grid">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/buttons.css">
+        <link rel="stylesheet" href="css/toolbar.css">
+        <header class="header">
+            <h1>
+                <a id="reset" href="./" class="header-logo">
+                    <img src="/img/favicon-64x64.png">
+                </a>
+                <span>SQLite Playground</span> &nbsp;//
+                <db-name id="db-name" class="db-name"></db-name>
+            </h1>
+            <tool-bar id="toolbar" class="toolbar hidden-mobile"></tool-bar>
+        </header>
+
+        <link rel="stylesheet" href="css/editor.css">
+        <link rel="stylesheet" href="css/commandbar.css">
+        <section class="sqlime-editor-section">
+            <sqlime-editor id="editor" class="sqlime-editor"></sqlime-editor>
+            <command-bar id="commandbar" class="sqlime-commandbar sqlime-disabled"></command-bar>
+        </section>
+
+        <link rel="stylesheet" href="css/result.css">
+        <link rel="stylesheet" href="css/status.css">
+        <section class="sqlime-result-section">
+            <sqlime-status id="status" class="sqlime-status"></sqlime-status>
+            <sqlime-result id="result" class="sqlime-result"></sqlime-result>
+        </section>
+    </div>
+
+    <script src="./js/sqlite/sqlean.js"></script>
+    <script type = "module" src="myfinsheet-client/dist/sqlite/sqlite3.client.mjs"></script>
+    <script type="module" src="js/components/copy-link.js"></script>
+    <script type="module" src="js/components/db-name.js"></script>
+    <script type="module" src="js/components/opfs-picker.js"></script>
+    <script type="module" src="js/components/toolbar.js"></script>
+    <script type="module" src="js/components/command-bar.js"></script>
+    <script type="module" src="js/components/sqlime-editor.js"></script>
+    <script type="module" src="js/components/sqlime-result.js"></script>
+    <script type="module" src="js/components/sqlime-status.js"></script>
+    <script type="module" src="js/index.js"></script>
+</body>
+
+</html>
