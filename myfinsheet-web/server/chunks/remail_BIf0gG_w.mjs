@@ -1,7 +1,7 @@
 import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
 import { i as renderComponent, u as renderTemplate } from "./server_pkxrvCO5.mjs";
 import { t as createComponent } from "./compiler_Bi41Xejp.mjs";
-import { t as $$AppLayout } from "./AppLayout_CSwWwfh6.mjs";
+import { t as $$AppLayout } from "./AppLayout_DmIOFe7t.mjs";
 //#region src/pages/remail.astro
 var remail_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$Remail,
@@ -27,4 +27,4 @@ var page = () => remail_exports;
 //#endregion
 export { page };
 
-//# sourceMappingURL=remail_BVMYq2bi.mjs.map
+//# sourceMappingURL=remail_BIf0gG_w.mjs.map

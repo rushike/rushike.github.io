@@ -1,7 +1,7 @@
 import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
 import { i as renderComponent, u as renderTemplate } from "./server_pkxrvCO5.mjs";
 import { t as createComponent } from "./compiler_Bi41Xejp.mjs";
-import { t as $$AppLayout } from "./AppLayout_CSwWwfh6.mjs";
+import { t as $$AppLayout } from "./AppLayout_DmIOFe7t.mjs";
 //#region src/pages/dockview.astro
 var dockview_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$Dockview,
@@ -29,4 +29,4 @@ var page = () => dockview_exports;
 //#endregion
 export { page };
 
-//# sourceMappingURL=dockview_B1OlQCQD.mjs.map
+//# sourceMappingURL=dockview_DoyK8ZmY.mjs.map

@@ -1,7 +1,7 @@
 import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
 import { i as renderComponent, u as renderTemplate } from "./server_pkxrvCO5.mjs";
 import { t as createComponent } from "./compiler_Bi41Xejp.mjs";
-import { t as $$AppLayout } from "./AppLayout_CSwWwfh6.mjs";
+import { t as $$AppLayout } from "./AppLayout_DmIOFe7t.mjs";
 //#region src/pages/schema-manager.astro
 var schema_manager_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$SchemaManager,
@@ -29,4 +29,4 @@ var page = () => schema_manager_exports;
 //#endregion
 export { page };
 
-//# sourceMappingURL=schema-manager_CfZA-Ajk.mjs.map
+//# sourceMappingURL=schema-manager_Dour33xl.mjs.map

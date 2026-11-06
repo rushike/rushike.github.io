@@ -1,7 +1,7 @@
 import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
 import { i as renderComponent, u as renderTemplate } from "./server_pkxrvCO5.mjs";
 import { t as createComponent } from "./compiler_Bi41Xejp.mjs";
-import { t as $$AppLayout } from "./AppLayout_CSwWwfh6.mjs";
+import { t as $$AppLayout } from "./AppLayout_DmIOFe7t.mjs";
 //#region src/pages/admin/[...slug].astro
 var ____slug__exports = /* @__PURE__ */ __exportAll({
 	default: () => $$Component,
@@ -24,4 +24,4 @@ var page = () => ____slug__exports;
 //#endregion
 export { page };
 
-//# sourceMappingURL=_.._D8h0cls6.mjs.map
+//# sourceMappingURL=_.._DFkBGbTd.mjs.map

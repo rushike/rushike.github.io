@@ -1,14 +1,14 @@
 import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
 import { i as renderComponent, u as renderTemplate, x as createAstro } from "./server_pkxrvCO5.mjs";
 import { t as createComponent } from "./compiler_Bi41Xejp.mjs";
-import { t as $$AppLayout } from "./AppLayout_CSwWwfh6.mjs";
+import { t as $$AppLayout } from "./AppLayout_DmIOFe7t.mjs";
 //#region src/pages/editor.astro
 var editor_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$Editor,
 	file: () => $$file,
 	url: () => $$url
 });
-createAstro("https://astro.build");
+createAstro("https://rushike.github.io");
 var $$Editor = createComponent(($$result, $$props, $$slots) => {
 	const Astro = $$result.createAstro($$props, $$slots);
 	Astro.self = $$Editor;
@@ -29,4 +29,4 @@ var page = () => editor_exports;
 //#endregion
 export { page };
 
-//# sourceMappingURL=editor_CxaFi-Q8.mjs.map
+//# sourceMappingURL=editor_B0FR7v3V.mjs.map

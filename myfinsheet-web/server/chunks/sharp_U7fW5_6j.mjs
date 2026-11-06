@@ -1,5 +1,5 @@
 import { $ as UnsupportedImageFormat, F as NoImageMetadata, N as MissingSharp, t as AstroError } from "./errors_B_WfBADO.mjs";
-import { a as resolveDefaultOutputFormat, i as detector, n as baseService, r as parseQuality } from "./node_CC_diGiS.mjs";
+import { a as resolveDefaultOutputFormat, i as detector, n as baseService, r as parseQuality } from "./node_Dof7FCml.mjs";
 //#region ../../node_modules/.pnpm/astro@7.2.9_@emnapi+core@1.11.1_@emnapi+runtime@1.11.3_@types+node@24.10.0_jiti@2.6.1_yaml@2.8.2/node_modules/astro/dist/assets/services/sharp.js
 var sharp;
 var qualityTable = {
@@ -151,4 +151,4 @@ var sharp_default = {
 //#endregion
 export { sharp_default as default, resolveSharpEncoderOptions };
 
-//# sourceMappingURL=sharp_2GHzqm4r.mjs.map
+//# sourceMappingURL=sharp_U7fW5_6j.mjs.map

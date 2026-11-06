@@ -2,7 +2,7 @@ import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
 import { R as generateCspDigest, d as maybeRenderHead, i as renderComponent, p as addAttribute, t as spreadAttributes, u as renderTemplate, v as unescapeHTML } from "./server_pkxrvCO5.mjs";
 import { o as escape_html } from "./server_CGOX8PqF.mjs";
 import { t as createComponent } from "./compiler_Bi41Xejp.mjs";
-import { t as $$AppLayout } from "./AppLayout_CSwWwfh6.mjs";
+import { t as $$AppLayout } from "./AppLayout_DmIOFe7t.mjs";
 //#region ../../node_modules/.pnpm/astro@7.2.9_@emnapi+core@1.11.1_@emnapi+runtime@1.11.3_@types+node@24.10.0_jiti@2.6.1_yaml@2.8.2/node_modules/astro/dist/assets/runtime.js
 function createSvgComponent({ meta, attributes, children, styles }) {
 	const hasStyles = styles.length > 0;
@@ -107,4 +107,4 @@ var page = () => pages_exports;
 //#endregion
 export { page };
 
-//# sourceMappingURL=index_AtrDivrL.mjs.map
+//# sourceMappingURL=index_Botmq2jb.mjs.map

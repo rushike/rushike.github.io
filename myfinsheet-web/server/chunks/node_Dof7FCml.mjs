@@ -1340,7 +1340,7 @@ var cssFitValues = [
 ];
 async function getConfiguredImageService() {
 	if (!globalThis?.astroAsset?.imageService) {
-		const { default: service } = await import("./sharp_2GHzqm4r.mjs").catch((e) => {
+		const { default: service } = await import("./sharp_U7fW5_6j.mjs").catch((e) => {
 			const error = new AstroError(InvalidImageService);
 			error.cause = e;
 			throw error;
@@ -1497,7 +1497,7 @@ async function peekRemoteFormatForStaticEmit(options, imageConfig, service) {
 Function.prototype.toString.call(Object);
 //#endregion
 //#region ../../node_modules/.pnpm/astro@7.2.9_@emnapi+core@1.11.1_@emnapi+runtime@1.11.3_@types+node@24.10.0_jiti@2.6.1_yaml@2.8.2/node_modules/astro/components/Image.astro
-createAstro("https://astro.build");
+createAstro("https://rushike.github.io");
 var $$Image = createComponent(async ($$result, $$props, $$slots) => {
 	const Astro2 = $$result.createAstro($$props, $$slots);
 	Astro2.self = $$Image;
@@ -1971,7 +1971,7 @@ function lookup(extn) {
 }
 //#endregion
 //#region ../../node_modules/.pnpm/astro@7.2.9_@emnapi+core@1.11.1_@emnapi+runtime@1.11.3_@types+node@24.10.0_jiti@2.6.1_yaml@2.8.2/node_modules/astro/components/Picture.astro
-createAstro("https://astro.build");
+createAstro("https://rushike.github.io");
 var $$Picture = createComponent(async ($$result, $$props, $$slots) => {
 	const Astro2 = $$result.createAstro($$props, $$slots);
 	Astro2.self = $$Picture;
@@ -2063,7 +2063,7 @@ function checkWeight(input, target) {
 }
 //#endregion
 //#region ../../node_modules/.pnpm/astro@7.2.9_@emnapi+core@1.11.1_@emnapi+runtime@1.11.3_@types+node@24.10.0_jiti@2.6.1_yaml@2.8.2/node_modules/astro/components/Font.astro
-createAstro("https://astro.build");
+createAstro("https://rushike.github.io");
 var $$Font = createComponent(($$result, $$props, $$slots) => {
 	const Astro = $$result.createAstro($$props, $$slots);
 	Astro.self = $$Font;
@@ -2236,4 +2236,4 @@ var page = () => node_exports;
 //#endregion
 export { resolveDefaultOutputFormat as a, detector as i, baseService as n, page, parseQuality as r, node___js_exports as t };
 
-//# sourceMappingURL=node_CC_diGiS.mjs.map
+//# sourceMappingURL=node_Dof7FCml.mjs.map
